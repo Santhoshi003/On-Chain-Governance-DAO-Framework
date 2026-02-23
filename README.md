@@ -1,53 +1,91 @@
-# Decentralized On-Chain Governance Platform
+# Decentralized On-Chain Governance & Voting Platform
 
-A full-stack governance DApp built with Hardhat (Solidity) and Next.js, featuring both Standard (1T1V) and Quadratic Voting mechanisms.
+A full-stack decentralized governance application built using **Solidity (Hardhat)** for smart contracts and **Next.js** for the frontend.
+
+This platform enables transparent, secure, and flexible on-chain decision-making by supporting both **Standard (1 Token = 1 Vote)** and **Quadratic Voting** mechanisms.
+
+---
+
+## Overview
+
+This project demonstrates the practical implementation of blockchain-based governance for DAOs and decentralized communities.
+
+It integrates secure smart contract logic with a modern Web3-enabled frontend interface, allowing users to create proposals, delegate voting power, and participate in governance seamlessly.
+
+---
 
 ## Project Structure
-- `/contracts`: Smart contracts (`GovernanceToken.sol`, `MyGovernor.sol`).
-- `/frontend`: Next.js DApp with Tailwind CSS.
-- `/scripts`: Deployment scripts.
-- `/test`: Unit tests.
 
-## Features
-- **ERC-20 + Votes**: Token with built-in delegation and snapshotting.
-- **Dual Voting Logic**:
-  - **Standard**: 1 Token = 1 Vote.
-  - **Quadratic**: Cost = (Votes)².
-- **Frontend Dashboard**:
-  - Wallet Connection.
-  - Create Proposals (Select Voting Type).
-  - Live Proposal Status & Voting Interface.
+* `/contracts` – Smart contracts (`GovernanceToken.sol`, `MyGovernor.sol`)
+* `/frontend` – Next.js decentralized application with Tailwind CSS
+* `/scripts` – Deployment scripts
+* `/test` – Unit tests for governance logic
 
-## Prerequisites
-- Docker & Docker Compose
-- *OR* Node.js v18+ (if running locally)
+---
 
-## Quick Start (Docker)
-The easiest way to run the project is using Docker, as it handles all dependencies.
+## Key Features
+
+### ERC-20 Governance Token
+
+* Built-in vote delegation
+* Snapshot-based voting for accurate vote tracking
+* Secure on-chain vote management
+
+### Dual Voting Mechanisms
+
+* **Standard Voting:** 1 Token = 1 Vote
+* **Quadratic Voting:** Voting cost follows the formula
+  [
+  Cost = (Number\ of\ Votes)^2
+  ]
+
+This allows more balanced and fair governance participation.
+
+### Web3 Governance Dashboard
+
+* Wallet connection
+* Proposal creation with selectable voting model
+* Real-time proposal tracking
+* Secure vote casting interface
+
+---
+
+## Technology Stack
+
+* Solidity
+* Hardhat
+* Next.js
+* Tailwind CSS
+* Ethers.js
+* Docker
+* Ethereum Local Network
+
+---
+
+## Setup & Execution
+
+To run the project:
+
+### Start the Local Blockchain
 
 ```bash
-docker-compose up --build
-```
-- **Frontend**: http://localhost:3000
-- **Hardhat Node**: http://localhost:8545
-
-## Local Development (Manual)
-If you prefer running locally or encounter Docker issues:
-
-### 1. Backend
-```bash
-# Install dependencies
 npm install
-
-# Run local node
 npx hardhat node
+```
 
-# Deploy contracts (in a separate terminal)
+Deploy the smart contracts in a new terminal:
+
+```bash
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
-### 2. Frontend
-Update `frontend/config.ts` with the deployed contract addresses.
+Update the deployed contract addresses in:
+
+```
+frontend/config.ts
+```
+
+Then start the frontend:
 
 ```bash
 cd frontend
@@ -55,6 +93,27 @@ npm install
 npm run dev
 ```
 
+Access the application at:
+
+```
+http://localhost:3000
+```
+
+---
+
 ## Troubleshooting
-- **npm install errors**: Ensure you have C++ build tools installed (for Hardhat dependencies).
-- **Docker connection**: Ensure Docker Desktop is running.
+
+* Ensure Node.js v18 or later is installed.
+* Confirm contract addresses are correctly updated in the frontend configuration.
+* Install required build tools if facing Hardhat dependency errors.
+
+---
+
+## Project Significance
+
+This project highlights:
+
+* Smart contract development expertise
+* DAO governance implementation
+* Web3 frontend integration
+* Full-stack blockchain architecture design
